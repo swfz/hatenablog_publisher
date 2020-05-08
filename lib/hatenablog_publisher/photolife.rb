@@ -28,15 +28,15 @@ module HatenablogPublisher
     end
 
     def format_body(image, dirname = 'Hatena Blog')
-      body = <<-"EOS"
-<entry xmlns="http://purl.org/atom/ns#">
-  <title>#{image.title}</title>
-  <content mode="base64" type="#{image.mime_type}">
-    #{image.content}
-  </content>
-  <dc:subject>#{dirname}</dc:subject>
-</entry>
-  EOS
+      body = <<~"XML"
+        <entry xmlns="http://purl.org/atom/ns#">
+          <title>#{image.title}</title>
+          <content mode="base64" type="#{image.mime_type}">
+            #{image.content}
+          </content>
+          <dc:subject>#{dirname}</dc:subject>
+        </entry>
+      XML
 
       body
     end

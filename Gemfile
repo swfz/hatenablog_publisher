@@ -1,17 +1,17 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 # Specify your gem's dependencies in hatenablog_publisher.gemspec
 gemspec
 
-gem 'rake', '~> 12.0'
-gem 'rspec', '~> 3.0'
+gem 'activesupport'
+gem 'awesome_print'
+gem 'front_matter_parser'
+gem 'mime-types'
 gem 'oauth'
 gem 'oga'
-gem 'mime-types'
-gem 'sanitize'
-gem 'activesupport'
-gem 'xml-simple'
-gem 'front_matter_parser'
-gem 'awesome_print'
 gem 'pry-byebug'
+gem 'rake', '~> 12.0'
+gem 'rspec', '~> 3.0'
 gem 'rubocop'
+gem 'sanitize'
+gem 'xml-simple'

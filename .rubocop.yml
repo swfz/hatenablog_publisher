@@ -1,0 +1,127 @@
+require:
+
+AllCops:
+  # Include:
+  Exclude:
+    - 'lib/**/*.rake'
+    - 'spec/**/*'
+    - 'bin/**/*'
+    - 'vendor/bundle/**/*'
+    - '*.gemspec'
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+Lint/UselessAssignment:
+  Enabled: false
+
+Lint/IneffectiveAccessModifier:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 100
+
+Metrics/LineLength:
+  Max: 100
+
+Metrics/MethodLength:
+  Max: 30
+
+Metrics/BlockLength:
+  Max: 20
+  Exclude:
+    - 'lib/tasks/*'
+
+Metrics/ModuleLength:
+  Max: 100
+
+Metrics/CyclomaticComplexity:
+  Max: 6
+
+Metrics/PerceivedComplexity:
+  Max: 7
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/BlockNesting:
+  CountBlocks: false
+  Max: 3
+
+Style/AndOr:
+  Enabled: true
+
+Style/ClassAndModuleChildren:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
+Style/NegatedIf:
+  Enabled: true
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: true
+
+Style/TrailingCommaInArguments:
+  Enabled: true
+
+Naming/PredicateName:
+  NamePrefix:
+    - has_
+    - have_
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/DoubleNegation:
+ Enabled: true
+
+Layout/SpaceBeforeFirstArg:
+  Enabled: false
+
+Layout/MultilineOperationIndentation:
+  Enabled: true
+
+Style/IdenticalConditionalBranches:
+  Enabled: true
+
+Style/Lambda:
+  Enabled: true
+
+Style/FormatString:
+  EnforcedStyle: sprintf
+
+Style/IfInsideElse:
+  Enabled: true
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: true
+
+Style/RegexpLiteral:
+  Enabled: true
+
+Style/GuardClause:
+  Enabled: true
+
+Metrics/ParameterLists:
+  Max: 3
+  CountKeywordArgs: true
+
+Security/Eval:
+  Enabled: false
