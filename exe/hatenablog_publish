@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+
+require 'hatenablog_publisher'
+require 'optparse'
+
+args = ARGV.getopts('du:s:f:', 'draft', 'user:', 'site:', 'filename:', 'trace').symbolize_keys
+
+if args[:filename].nil? || args[:user].nil? || args[:site].nil?
+  p 'this script required "--filename", "--user", "--site"  option!'
+  exit 1
+end
+
+HatenablogPublisher.publish(args)

@@ -1,0 +1,108 @@
+PATH
+  remote: .
+  specs:
+    hatenablog_publisher (0.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (6.0.3)
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      i18n (>= 0.7, < 2)
+      minitest (~> 5.1)
+      tzinfo (~> 1.1)
+      zeitwerk (~> 2.2, >= 2.2.2)
+    ansi (1.5.0)
+    ast (2.4.0)
+    awesome_print (1.8.0)
+    byebug (11.1.3)
+    coderay (1.1.2)
+    concurrent-ruby (1.1.6)
+    crass (1.0.6)
+    diff-lcs (1.3)
+    front_matter_parser (0.2.1)
+    i18n (1.8.2)
+      concurrent-ruby (~> 1.0)
+    jaro_winkler (1.5.4)
+    method_source (1.0.0)
+    mime-types (3.3.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2020.0425)
+    mini_portile2 (2.4.0)
+    minitest (5.14.0)
+    nokogiri (1.10.9)
+      mini_portile2 (~> 2.4.0)
+    nokogumbo (2.0.2)
+      nokogiri (~> 1.8, >= 1.8.4)
+    oauth (0.5.4)
+    oga (3.2)
+      ast
+      ruby-ll (~> 2.1)
+    parallel (1.19.1)
+    parser (2.7.1.2)
+      ast (~> 2.4.0)
+    pry (0.13.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry-byebug (3.9.0)
+      byebug (~> 11.0)
+      pry (~> 0.13.0)
+    rainbow (3.0.0)
+    rake (12.3.3)
+    rexml (3.2.4)
+    rspec (3.9.0)
+      rspec-core (~> 3.9.0)
+      rspec-expectations (~> 3.9.0)
+      rspec-mocks (~> 3.9.0)
+    rspec-core (3.9.2)
+      rspec-support (~> 3.9.3)
+    rspec-expectations (3.9.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-mocks (3.9.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.9.0)
+    rspec-support (3.9.3)
+    rubocop (0.82.0)
+      jaro_winkler (~> 1.5.1)
+      parallel (~> 1.10)
+      parser (>= 2.7.0.1)
+      rainbow (>= 2.2.2, < 4.0)
+      rexml
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 1.4.0, < 2.0)
+    ruby-ll (2.1.2)
+      ansi
+      ast
+    ruby-progressbar (1.10.1)
+    sanitize (5.1.0)
+      crass (~> 1.0.2)
+      nokogiri (>= 1.8.0)
+      nokogumbo (~> 2.0)
+    thread_safe (0.3.6)
+    tzinfo (1.2.7)
+      thread_safe (~> 0.1)
+    unicode-display_width (1.7.0)
+    xml-simple (1.1.5)
+    zeitwerk (2.3.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activesupport
+  awesome_print
+  front_matter_parser
+  hatenablog_publisher!
+  mime-types
+  oauth
+  oga
+  pry-byebug
+  rake (~> 12.0)
+  rspec (~> 3.0)
+  rubocop
+  sanitize
+  xml-simple
+
+BUNDLED WITH
+   2.1.4
