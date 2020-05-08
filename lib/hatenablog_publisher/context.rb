@@ -63,7 +63,9 @@ module HatenablogPublisher
       @title = parsed.front_matter['title']
       @categories = parsed.front_matter['category']
       @text = parsed.content
-      @hatena = parsed.front_matter['hatena'].deep_symbolize_keys
+      if parsed.front_matter['hatena']
+        @hatena = parsed.front_matter['hatena'].deep_symbolize_keys
+      end
     end
   end
 end
