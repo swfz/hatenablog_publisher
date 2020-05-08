@@ -25,3 +25,17 @@ jobs:
       - name: test
         run: |
           bundle exec rspec
+
+  rubocop:
+    runs-on: ubuntu-latest
+    name: 'rubocop'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.6
+      - uses: reviewdog/action-rubocop@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-check
+          rubocop_version: 0.82.0
