@@ -20,6 +20,5 @@ module HatenablogPublisher
     def title
       File.basename(@filepath, '.*')
     end
-
   end
 end

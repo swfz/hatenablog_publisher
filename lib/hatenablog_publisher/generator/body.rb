@@ -11,7 +11,9 @@ module HatenablogPublisher
       def generate
         markdown = @context.text.dup
 
-        markdown.gsub!(/[^`]!\[.*\]\((.*)\)/) {"\n\n" + @context.image_syntax($1)}
+        markdown.gsub!(/[^`]!\[.*\]\((.*)\)/) do
+          "\n\n" + @context.image_syntax(Regexp.last_match(1))
+        end
 
         CGI.escapeHTML(markdown)
       end
