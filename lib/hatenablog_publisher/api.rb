@@ -1,4 +1,4 @@
-require 'oauth'
+require "oauth"
 require 'json'
 
 module HatenablogPublisher
