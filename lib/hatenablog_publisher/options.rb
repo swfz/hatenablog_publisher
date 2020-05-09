@@ -6,12 +6,12 @@ module HatenablogPublisher
       @args = args.with_indifferent_access
     end
 
-    def draft?
-      @args[:is_draft].present?
+    def draft
+      @args[:draft] ? 'yes' : 'no'
     end
 
     def debug?
-      @args[:is_debug].present?
+      @args[:debug]
     end
   end
 end

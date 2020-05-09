@@ -1,5 +1,6 @@
 require 'yaml'
 require 'front_matter_parser'
+require 'active_support/core_ext/hash'
 
 module HatenablogPublisher
   class Context
@@ -34,7 +35,7 @@ module HatenablogPublisher
     end
 
     def posted_image?(tag)
-      @hatena[:image][tag.to_sym][:syntax].present?
+      @hatena.dig(:image, tag.to_sym, :syntax).present?
     end
 
     def add_entry_context(entry)
@@ -63,7 +64,11 @@ module HatenablogPublisher
       @title = parsed.front_matter['title']
       @categories = parsed.front_matter['category']
       @text = parsed.content
-      @hatena = parsed.front_matter['hatena'].deep_symbolize_keys
+      @hatena = if parsed.front_matter['hatena'].nil?
+                  {}
+                else
+                  parsed.front_matter['hatena'].deep_symbolize_keys
+                end
     end
   end
 end

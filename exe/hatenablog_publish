@@ -2,6 +2,7 @@
 
 require 'hatenablog_publisher'
 require 'optparse'
+require 'active_support/core_ext/hash'
 
 args = ARGV.getopts('du:s:f:', 'draft', 'user:', 'site:', 'filename:', 'trace').symbolize_keys
 
