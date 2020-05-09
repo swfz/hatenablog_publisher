@@ -1,7 +1,7 @@
 require 'pry'
+
 module HatenablogPublisher
   module RequestLogger
-
     def with_logging_request(identifier, request_body, &block)
       log("#{identifier}-request", request_body)
       res = yield
