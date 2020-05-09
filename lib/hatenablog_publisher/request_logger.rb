@@ -2,7 +2,7 @@ require 'pry'
 module HatenablogPublisher
   module RequestLogger
     def log(identifier, target)
-      Dir.mkdir('tmp') if !Dir.exist?('tmp')
+      Dir.mkdir('tmp') unless Dir.exist?('tmp')
 
       classname = self.class.to_s.demodulize.downcase
       filepath = "tmp/hatenablog_publisher-#{classname}-#{identifier}.xml"
