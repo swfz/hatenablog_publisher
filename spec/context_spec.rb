@@ -3,11 +3,13 @@ require 'oauth'
 require 'awesome_print'
 
 RSpec.describe HatenablogPublisher::Context do
+  let(:image1_context) { {syntax: '[f:id:hoge:11111111111111p:image]', id: 'tag:hatena.ne.jp,2005:fotolife-hoge-11111111111111', image_url: 'https://cdn-ak.f.st-hatena.com/images/fotolife/s/hoge/20200509/20200509150000.png'} }
+  let(:image2_context) { {syntax:  '[f:id:hoge:22222222222222p:image]', id: 'tag:hatena.ne.jp,2005:fotolife-hoge-22222222222222', image_url: 'https://cdn-ak.f.st-hatena.com/images/fotolife/s/hoge/20200509/20200509150001.png'} }
 
   describe "初回投稿時の状態のマークダウン" do
     describe "読み込み時" do
+      let(:context) { described_class.new('./spec/support/sample.md') }
       it "タイトル,カテゴリが読み込めているか" do
-        context = described_class.new('./spec/support/sample.md')
         expect(context.title).to eq 'サンプルマークダウン'
         expect(context.categories).to eq ['Markdown', 'Sample']
         expect(context.hatena).to be_empty
@@ -16,25 +18,16 @@ RSpec.describe HatenablogPublisher::Context do
   end
   describe "更新投稿時の状態のマークダウン" do
     describe "読み込み時" do
+      let(:context) { described_class.new('./spec/support/sample2.md') }
       it "タイトル,カテゴリ,entry id, photolifeのデータが読み込めているか" do
-
         hatena = { image:
           {
-            'sample01.png': {
-              syntax: '[f:id:hoge:11111111111111p:image]',
-              id: 'tag:hatena.ne.jp,2005:fotolife-hoge-11111111111111',
-              image_url: 'https://cdn-ak.f.st-hatena.com/images/fotolife/s/hoge/20200509/20200509150000.png'
-            },
-            'sample02.png': {
-              syntax: '[f:id:hoge:22222222222222p:image]',
-              id: 'tag:hatena.ne.jp,2005:fotolife-hoge-22222222222222',
-              image_url: 'https://cdn-ak.f.st-hatena.com/images/fotolife/s/hoge/20200509/20200509150001.png'
-            }
+            'sample01.png': image1_context,
+            'sample02.png': image2_context
           },
           id: '11111111111111111'
         }
 
-        context = described_class.new('./spec/support/sample2.md')
         expect(context.title).to eq 'サンプルマークダウン'
         expect(context.categories).to eq ['Markdown', 'Sample']
         expect(context.hatena).to eq hatena
@@ -43,8 +36,6 @@ RSpec.describe HatenablogPublisher::Context do
   end
 
   describe "image POST後" do
-    let(:image1_context) { {syntax: '[f:id:hoge:11111111111111p:image]', id: 'tag:hatena.ne.jp,2005:fotolife-hoge-11111111111111', image_url: 'https://cdn-ak.f.st-hatena.com/images/fotolife/s/hoge/20200509/20200509150000.png'} }
-    let(:image2_context) { {syntax:  '[f:id:hoge:22222222222222p:image]', id: 'tag:hatena.ne.jp,2005:fotolife-hoge-22222222222222', image_url: 'https://cdn-ak.f.st-hatena.com/images/fotolife/s/hoge/20200509/20200509150001.png'} }
     describe "add_context" do
       let(:xml1) {OpenStruct.new(body: File.read('spec/support/photolife-sample01-response.xml'))}
       let(:xml2) {OpenStruct.new(body: File.read('spec/support/photolife-sample02-response.xml'))}
