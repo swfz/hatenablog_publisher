@@ -23,6 +23,11 @@ jobs:
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
       - name: test
+        env:
+          HATENABLOG_CONSUMER_KEY: dummy
+          HATENABLOG_CONSUMER_SECRET: dummy
+          HATENABLOG_ACCESS_TOKEN_SECRET: dummy
+          HATENABLOG_ACCESS_TOKEN: dummy
         run: |
           bundle exec rspec
 

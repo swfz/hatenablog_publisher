@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<entry xmlns="http://purl.org/atom/ns#" xmlns:hatena="http://www.hatena.ne.jp/info/xmlns#">
+  <title>sample02</title>
+  <link rel="alternate" type="text/html" href="http://f.hatena.ne.jp/hoge/22222222222222"/>
+  <link rel="service.edit" type="application/x.atom+xml" href="http://f.hatena.ne.jp/atom/edit/22222222222222" title="sample02"/>
+  <issued>2020-05-09T18:20:33+09:00</issued>
+  <author>
+    <name>hoge</name>
+  </author>
+  <generator url="http://f.hatena.ne.jp/" version="1.0">Hatena::Fotolife</generator>
+  <dc:subject xmlns:dc="http://purl.org/dc/elements/1.1/">Hatena Blog</dc:subject>
+  <id>tag:hatena.ne.jp,2005:fotolife-hoge-22222222222222</id>
+  <hatena:imageurl>https://cdn-ak.f.st-hatena.com/images/fotolife/s/hoge/20200509/20200509150001.png</hatena:imageurl>
+  <hatena:imageurlmedium>https://cdn-ak.f.st-hatena.com/images/fotolife/s/hoge/20200509/20200509150001_120.jpg</hatena:imageurlmedium>
+  <hatena:imageurlsmall>https://cdn-ak.f.st-hatena.com/images/fotolife/s/hoge/20200509/20200509150001_m.jpg</hatena:imageurlsmall>
+  <hatena:syntax>f:id:hoge:22222222222222p:image</hatena:syntax>
+</entry>
