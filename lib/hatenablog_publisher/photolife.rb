@@ -1,22 +1,25 @@
 require 'xmlsimple'
 
 module HatenablogPublisher
-  ENDPOINT = 'http://f.hatena.ne.jp'.freeze
-
   class Photolife
+    include HatenablogPublisher::RequestLogger
+
     attr_reader :client
+
+    ENDPOINT = 'http://f.hatena.ne.jp'.freeze
 
     def initialize
       @client = HatenablogPublisher::Api.new(ENDPOINT)
     end
 
     def upload(image)
-      p "[Info] Image: uploading... #{image.filepath}"
-
       body = format_body(image)
+
+      log('request', body)
+
       res = @client.request('/atom/post', body)
-      File.write('tmp/photo_result.xml', res.body)
-      p '[Info] Image: requested. output log -> photo_result.xml'
+
+      log('response', res.body)
 
       parse_response(res.body)
     end

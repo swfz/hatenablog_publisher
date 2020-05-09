@@ -2,6 +2,8 @@ require 'oga'
 
 module HatenablogPublisher
   class Entry
+    include HatenablogPublisher::RequestLogger
+
     attr_reader :client, :context, :options
 
     ENDPOINT = 'http://blog.hatena.ne.jp'.freeze
@@ -14,14 +16,12 @@ module HatenablogPublisher
 
     def post_entry(body)
       request_xml = format_request(body)
-      File.write('tmp/post_entry_request.xml', Oga.parse_xml(request_xml).to_xml)
-      p '[Info] Entry: start request. output log -> post_entry_request.xml'
+      log('request', request_xml)
 
       method = @context.hatena.dig(:id) ? :put : :post
       res = @client.request(api_url, request_xml, method)
 
-      File.write('tmp/post_entry_response.xml', res.body)
-      p '[Info] Entry: requested. output log -> post_entry_response.xml'
+      log('response', res.body)
 
       parse_response(res.body)
     end
