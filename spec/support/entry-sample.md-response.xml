@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<entry xmlns="http://www.w3.org/2005/Atom"
+       xmlns:app="http://www.w3.org/2007/app">
+<id>tag:blog.hatena.ne.jp,2013:blog-hoge-26006613401086783-11111111111111111</id>
+<link rel="edit" href="http://blog.hatena.ne.jp/hoge/hoge-sample.example.com/atom/entry/11111111111111111"/>
+<link rel="alternate" type="text/html" href="https://hoge-sample.example.com/entry/2020/05/09/182039"/>
+<author><name>hoge</name></author>
+<title>サンプルマークダウン</title>
+<updated>2020-05-09T18:20:39+09:00</updated>
+<published>2020-05-09T18:20:39+09:00</published>
+<app:edited>2020-05-09T18:20:39+09:00</app:edited>
+<summary type="text">code block back quote hoge fuga multiline code block type HogeProps = &lt;ComponentProps&lt;typeof Hoge&gt;&gt; type PartialP2 = Partial&lt;Pick&lt;HogeProps,…</summary>
+<content type="text/x-markdown">
+## code block
+### back quote
+
+`hoge fuga`
+
+### multiline code block
+
+```typescript
+type HogeProps = &lt;ComponentProps&lt;typeof Hoge&gt;&gt;
+type PartialP2 = Partial&lt;Pick&lt;HogeProps, &#39;p2&#39;&gt;&gt;
+type Props = HogeProps &amp; PartialP2
+```
+
+## image
+
+- image1
+
+
+[f:id:hoge:11111111111111p:image]
+
+- image2
+
+
+[f:id:hoge:22222222222222p:image]
+
+
+## title3
+
+## title4
+
+
+
+  </content>
+<hatena:formatted-content type="text/html" xmlns:hatena="http://www.hatena.ne.jp/info/xmlns#">&lt;h2&gt;code block&lt;/h2&gt;
+
+&lt;h3&gt;back quote&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;hoge fuga&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;multiline code block&lt;/h3&gt;
+
+&lt;pre class=&quot;code lang-typescript&quot; data-lang=&quot;typescript&quot; data-unlink&gt;&lt;span class=&quot;synStatement&quot;&gt;type&lt;/span&gt; HogeProps &lt;span class=&quot;synStatement&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;synStatement&quot;&gt;&amp;lt;&lt;/span&gt;ComponentProps&lt;span class=&quot;synStatement&quot;&gt;&amp;lt;typeof&lt;/span&gt; Hoge&lt;span class=&quot;synStatement&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;synStatement&quot;&gt;type&lt;/span&gt; PartialP2 &lt;span class=&quot;synStatement&quot;&gt;=&lt;/span&gt; Partial&lt;span class=&quot;synStatement&quot;&gt;&amp;lt;&lt;/span&gt;Pick&lt;span class=&quot;synStatement&quot;&gt;&amp;lt;&lt;/span&gt;HogeProps&lt;span class=&quot;synStatement&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;synConstant&quot;&gt;&#39;p2&#39;&lt;/span&gt;&lt;span class=&quot;synStatement&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;synStatement&quot;&gt;type&lt;/span&gt; Props &lt;span class=&quot;synStatement&quot;&gt;=&lt;/span&gt; HogeProps &amp;amp; PartialP2
+&lt;/pre&gt;
+
+
+&lt;h2&gt;image&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;image1&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;a href=&quot;http://f.hatena.ne.jp/hoge/20200509182027&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;url&quot;&gt;&lt;img src=&quot;https://cdn-ak.f.st-hatena.com/images/fotolife/s/hoge/20200509/20200509150000.png&quot; alt=&quot;f:id:hoge:11111111111111p:image&quot; title=&quot;f:id:hoge:20200509182027p:image&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;image2&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;span itemscope itemtype=&quot;http://schema.org/Photograph&quot;&gt;&lt;a href=&quot;http://f.hatena.ne.jp/hoge/20200509182033&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;url&quot;&gt;&lt;img src=&quot;https://cdn-ak.f.st-hatena.com/images/fotolife/s/hoge/20200509/20200509150001.png&quot; alt=&quot;f:id:hoge:22222222222222p:image&quot; title=&quot;f:id:hoge:20200509182033p:image&quot; class=&quot;hatena-fotolife&quot; itemprop=&quot;image&quot;&gt;&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+
+&lt;h2&gt;title3&lt;/h2&gt;
+
+&lt;h2&gt;title4&lt;/h2&gt;
+</hatena:formatted-content>
+
+<category term="Markdown" />
+
+<category term="Sample" />
+
+<app:control>
+  <app:draft>yes</app:draft>
+</app:control>
+
+</entry>
