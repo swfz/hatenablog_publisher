@@ -1,5 +1,6 @@
 require 'yaml'
 require 'front_matter_parser'
+require 'active_support/core_ext/hash'
 
 module HatenablogPublisher
   class Context
