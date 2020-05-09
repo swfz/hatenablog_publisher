@@ -68,6 +68,7 @@ module HatenablogPublisher
                   {}
                 else
                   parsed.front_matter['hatena'].deep_symbolize_keys
+                end
     end
   end
 end
