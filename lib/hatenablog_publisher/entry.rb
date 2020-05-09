@@ -17,12 +17,11 @@ module HatenablogPublisher
 
     def post_entry(body)
       request_xml = format_request(body)
-      log("#{@context.basename}-request", request_xml)
 
-      method = @context.hatena.dig(:id) ? :put : :post
-      res = @client.request(api_url, request_xml, method)
-
-      log("#{@context.basename}-response", res.body)
+      res = with_logging_request(@context.basename, request_xml) do
+        method = @context.hatena.dig(:id) ? :put : :post
+        @client.request(api_url, request_xml, method)
+      end
 
       parse_response(res.body)
     end

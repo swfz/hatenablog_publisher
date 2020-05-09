@@ -15,11 +15,9 @@ module HatenablogPublisher
     def upload(image)
       body = format_body(image)
 
-      log("#{image.title}-request", body)
-
-      res = @client.request('/atom/post', body)
-
-      log("#{image.title}-response", res.body)
+      res = with_logging_request(image.title, body) do
+        @client.request('/atom/post', body)
+      end
 
       parse_response(res.body)
     end
