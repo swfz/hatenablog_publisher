@@ -4,11 +4,12 @@ require 'active_support/core_ext/hash'
 
 module HatenablogPublisher
   class Context
-    attr_reader :filename, :title, :categories, :text, :hatena, :dirname
+    attr_reader :filename, :title, :categories, :text, :hatena, :dirname, :basename
 
     def initialize(filename)
       @filename = filename
       @dirname = File.dirname(filename)
+      @basename = File.basename(filename)
 
       read_context
     end
