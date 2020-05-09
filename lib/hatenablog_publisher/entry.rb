@@ -56,7 +56,7 @@ module HatenablogPublisher
           <updated>#{Time.now.strftime('%Y-%m-%dT%H:%M%S')}</updated>
           #{categories}
           <app:control>
-            <app:draft>#{@options.draft?}</app:draft>
+            <app:draft>#{@options.draft}</app:draft>
           </app:control>
         </entry>
       XML
