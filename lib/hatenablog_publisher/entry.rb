@@ -1,4 +1,5 @@
 require 'oga'
+require 'hatenablog_publisher/request_logger'
 
 module HatenablogPublisher
   class Entry
@@ -16,12 +17,12 @@ module HatenablogPublisher
 
     def post_entry(body)
       request_xml = format_request(body)
-      log('request', request_xml)
+      log("#{@context.basename}-request", request_xml)
 
       method = @context.hatena.dig(:id) ? :put : :post
       res = @client.request(api_url, request_xml, method)
 
-      log('response', res.body)
+      log("#{@context.basename}-response", res.body)
 
       parse_response(res.body)
     end
