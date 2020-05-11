@@ -24,6 +24,15 @@ module HatenablogPublisher
         @context.reload_context
       end
 
+      body = generate_body
+
+      entry = HatenablogPublisher::Entry.new(@context, @options)
+      entry_hash = entry.post_entry(body)
+      @context.add_entry_context(entry_hash)
+      @context.reload_context
+    end
+
+    def generate_body
       generator = HatenablogPublisher::Generator::Body.new(@context, @options)
       body = generator.generate
 
@@ -32,10 +41,7 @@ module HatenablogPublisher
         body += category.format_body
       end
 
-      entry = HatenablogPublisher::Entry.new(@context, @options)
-      entry_hash = entry.post_entry(body)
-      @context.add_entry_context(entry_hash)
-      @context.reload_context
+      body
     end
   end
 end
