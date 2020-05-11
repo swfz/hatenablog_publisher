@@ -4,7 +4,14 @@ require 'hatenablog_publisher'
 require 'optparse'
 require 'active_support/core_ext/hash'
 
-args = ARGV.getopts('du:s:f:', 'draft', 'user:', 'site:', 'filename:', 'trace').symbolize_keys
+args = ARGV.getopts('du:s:f:a:t',
+                    'draft',
+                    'user:',
+                    'site:',
+                    'ad_type:',
+                    'ad_file:',
+                    'filename:',
+                    'trace').symbolize_keys
 
 if args[:filename].nil? || args[:user].nil? || args[:site].nil?
   p 'this script required "--filename", "--user", "--site"  option!'
