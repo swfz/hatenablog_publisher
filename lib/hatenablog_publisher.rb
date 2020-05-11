@@ -8,6 +8,7 @@ require 'hatenablog_publisher/options'
 require 'hatenablog_publisher/api'
 require 'hatenablog_publisher/generator/body'
 require 'hatenablog_publisher/request_logger'
+require 'hatenablog_publisher/fixed_content/ad'
 
 module HatenablogPublisher
   class Error < StandardError; end

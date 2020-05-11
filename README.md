@@ -22,7 +22,38 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+- --ad_type
+    - image
+    - html
+
+--ad_file
+    - YAML syntax
+
+### Ad Content
+
+require `ad_type` and `ad_file`
+
+- `ad_file`
+
+Insert a pre-defined ad tag (assuming you are an Amazon associate) at the end of the article
+
+e.g.)
+
+```
+---
+AWS:
+  - name: Book Name
+    html: '<iframe ........'
+    image: '<a target.......'
+  - name: Book Name2
+    html: '<iframe ........'
+    image: '<a target.......'
+Sample:
+  - name: Book Name3
+    html: '<iframe ........'
+    image: '<a target.......'
+```
+
 
 ## Development
 

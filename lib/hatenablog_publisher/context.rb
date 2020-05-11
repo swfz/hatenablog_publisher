@@ -32,11 +32,11 @@ module HatenablogPublisher
     end
 
     def image_syntax(tag)
-      @hatena[:image][tag.to_sym][:syntax]
+      @hatena.dig(:image, tag.to_sym, :syntax)
     end
 
     def posted_image?(tag)
-      @hatena.dig(:image, tag.to_sym, :syntax).present?
+      image_syntax(tag).present?
     end
 
     def add_entry_context(entry)
