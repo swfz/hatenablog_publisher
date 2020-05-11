@@ -1,5 +1,6 @@
 require 'oauth'
 require 'json'
+require 'awesome_print'
 
 module HatenablogPublisher
   class Client
@@ -24,8 +25,12 @@ module HatenablogPublisher
       end
 
       generator = HatenablogPublisher::Generator::Body.new(@context, @options)
-
       body = generator.generate
+
+      if @options.args[:ad_type]
+        category = HatenablogPublisher::FixedContent::Ad.new(@context.categories, @options)
+        body += category.format_body
+      end
 
       entry = HatenablogPublisher::Entry.new(@context, @options)
       entry_hash = entry.post_entry(body)
