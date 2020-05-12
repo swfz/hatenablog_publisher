@@ -10,7 +10,11 @@ RSpec.describe HatenablogPublisher::Context do
 
   describe '.read_context' do
     context '初回投稿時の状態の.md' do
-      let(:context) { described_class.new('./spec/support/sample.md') }
+      let(:context) do
+        options = HatenablogPublisher::Options.new(filename: './spec/support/sample.md')
+        io = HatenablogPublisher::Io.new(options)
+        described_class.new(io)
+      end
       subject {context}
 
       it 'title,categoryが読めているか' do
@@ -23,7 +27,11 @@ RSpec.describe HatenablogPublisher::Context do
     end
 
     context '更新投稿時の.md' do
-      subject { described_class.new('./spec/support/sample2.md') }
+      subject do
+        options = HatenablogPublisher::Options.new(filename: './spec/support/sample2.md')
+        io = HatenablogPublisher::Io.new(options)
+        described_class.new(io)
+      end
       let(:hatena) do {
         image: {
           'sample01.png': image1_context,
@@ -45,7 +53,11 @@ RSpec.describe HatenablogPublisher::Context do
     let(:photolife_api) {HatenablogPublisher::Photolife.new}
     let(:image1) {HatenablogPublisher::Image.new('spec/support/sample01.png')}
     let(:image2) {HatenablogPublisher::Image.new('spec/support/sample02.png')}
-    let(:context) {described_class.new('spec/support/sample.md')}
+    let(:context) do
+      options = HatenablogPublisher::Options.new(filename: './spec/support/sample.md')
+      io = HatenablogPublisher::Io.new(options)
+      described_class.new(io)
+    end
 
     before do
       allow(photolife_api.client.client).to receive(:request).and_return(xml1, xml2)
@@ -81,7 +93,9 @@ RSpec.describe HatenablogPublisher::Context do
 
   describe '.add_entry_context' do
     let(:xml) { OpenStruct.new(body: File.read('spec/support/entry-sample.md-response.xml')) }
-    let(:options) { HatenablogPublisher::Options.new({}) }
+    let(:options) { HatenablogPublisher::Options.new(filename: './spec/support/sample.md') }
+    let(:io) { HatenablogPublisher::Io.new(options) }
+    let(:context) { described_class.new(io) }
     let(:entry_api) { HatenablogPublisher::Entry.new(context, options) }
 
     before do
@@ -89,7 +103,6 @@ RSpec.describe HatenablogPublisher::Context do
     end
 
     context '初回投稿時' do
-      let(:context) { described_class.new('spec/support/sample.md') }
       let(:entry_hash) {entry_api.post_entry('dummy text')}
 
       it 'entry_idが追加されているか' do
@@ -101,7 +114,7 @@ RSpec.describe HatenablogPublisher::Context do
     end
 
     context '更新投稿時' do
-      let(:context) { described_class.new('spec/support/sample2.md') }
+      let(:options) { HatenablogPublisher::Options.new(filename: './spec/support/sample2.md') }
       let(:entry_hash) {entry_api.post_entry('dummy text')}
       let!(:before_hatena) {context.hatena}
 
