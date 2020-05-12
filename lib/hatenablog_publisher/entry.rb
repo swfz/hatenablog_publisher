@@ -7,7 +7,7 @@ module HatenablogPublisher
 
     attr_reader :client, :context, :options
 
-    ENDPOINT = 'http://blog.hatena.ne.jp'.freeze
+    ENDPOINT = 'https://blog.hatena.ne.jp'.freeze
 
     def initialize(context, options)
       @client = HatenablogPublisher::Api.new(ENDPOINT)
