@@ -9,6 +9,7 @@ require 'hatenablog_publisher/api'
 require 'hatenablog_publisher/generator/body'
 require 'hatenablog_publisher/request_logger'
 require 'hatenablog_publisher/fixed_content/ad'
+require 'hatenablog_publisher/io'
 
 module HatenablogPublisher
   class Error < StandardError; end
