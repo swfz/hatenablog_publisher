@@ -35,14 +35,15 @@ module HatenablogPublisher
     end
 
     def write_file(title:, category:, hatena:, text:)
+      filename = @options.args[:filename]
       parsed = FrontMatterParser::Parser.parse_file(filename)
       front_matter = parsed.front_matter.deep_symbolize_keys.merge(
         title: title,
         category: category,
         hatena: hatena
       )
-      body = YAML.dump(front_matter) + "\n---\n\n" + text
-      File.write(@filename, body)
+      body = YAML.dump(front_matter.deep_stringify_keys) + "\n---\n\n" + text
+      File.write(filename, body)
     end
 
     def read

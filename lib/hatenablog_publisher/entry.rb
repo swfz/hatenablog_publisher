@@ -17,8 +17,9 @@ module HatenablogPublisher
 
     def post_entry(body)
       request_xml = format_request(body)
+      basename = File.basename(@options.args[:filename])
 
-      res = with_logging_request(@context.basename, request_xml) do
+      res = with_logging_request(basename, request_xml) do
         method = @context.hatena.dig(:id) ? :put : :post
         @client.request(api_url, request_xml, method)
       end
