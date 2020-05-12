@@ -120,7 +120,7 @@ Style/GuardClause:
   Enabled: true
 
 Metrics/ParameterLists:
-  Max: 3
+  Max: 4
   CountKeywordArgs: true
 
 Security/Eval:
