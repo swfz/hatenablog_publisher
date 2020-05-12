@@ -7,8 +7,9 @@ module HatenablogPublisher
     attr_reader :context
 
     def initialize(args)
-      @context = HatenablogPublisher::Context.new(args[:filename])
       @options = HatenablogPublisher::Options.new(args)
+      io = HatenablogPublisher::Io.new(@options)
+      @context = HatenablogPublisher::Context.new(io)
     end
 
     def publish
