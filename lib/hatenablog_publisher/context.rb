@@ -4,12 +4,10 @@ require 'active_support/core_ext/hash'
 
 module HatenablogPublisher
   class Context
-    attr_reader :filename, :title, :categories, :text, :hatena, :dirname, :basename
+    attr_reader :title, :categories, :text, :hatena
 
-    def initialize(filename)
-      @filename = filename
-      @dirname = File.dirname(filename)
-      @basename = File.basename(filename)
+    def initialize(io)
+      @io = io
 
       read_context
     end
@@ -46,30 +44,17 @@ module HatenablogPublisher
 
     private
 
-    def front_matter
-      {
-        title: @title,
-        category: @categories,
-        hatena: @hatena
-      }.deep_stringify_keys
-    end
-
     def write_context
-      body = YAML.dump(front_matter) + "\n---\n\n" + @text
-      File.write(@filename, body)
+      @io.write(title: @title, category: @categories, hatena: @hatena, text: @text)
     end
 
     def read_context
-      parsed = FrontMatterParser::Parser.parse_file(@filename)
+      data, text = @io.read
 
-      @title = parsed.front_matter['title']
-      @categories = parsed.front_matter['category']
-      @text = parsed.content
-      @hatena = if parsed.front_matter['hatena'].nil?
-                  {}
-                else
-                  parsed.front_matter['hatena'].deep_symbolize_keys
-                end
+      @text = text
+      @categories = data[:category]
+      @title = data[:title]
+      @hatena = data[:hatena] || {}
     end
   end
 end

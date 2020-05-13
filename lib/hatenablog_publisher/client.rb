@@ -7,18 +7,20 @@ module HatenablogPublisher
     attr_reader :context
 
     def initialize(args)
-      @context = HatenablogPublisher::Context.new(args[:filename])
       @options = HatenablogPublisher::Options.new(args)
+      io = HatenablogPublisher::Io.new(@options)
+      @context = HatenablogPublisher::Context.new(io)
     end
 
     def publish
       image_tags = @context.text.scan(/[^`]!\[.*\]\((.*)\)/).flatten
       photolife = HatenablogPublisher::Photolife.new
+      dirname = File.dirname(@options.args[:filename])
 
       image_tags.each do |tag|
         next if @context.posted_image?(tag)
 
-        image = HatenablogPublisher::Image.new(File.join(@context.dirname, tag))
+        image = HatenablogPublisher::Image.new(File.join(dirname, tag))
         image_hash = photolife.upload(image)
         @context.add_image_context(image_hash, tag)
         @context.reload_context
