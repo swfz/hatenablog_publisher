@@ -26,7 +26,7 @@ module HatenablogPublisher
 
     class << self
       def create(args)
-        config_file = 'hatenablog_publisher_config.yml'
+        config_file = args[:config] || './hatenablog_publisher_config.yml'
         from_file = YAML.safe_load(ERB.new(File.read(config_file)).result)
         config = new(from_file.symbolize_keys.merge(args) { |_k, o, n| n.nil? ? o : n })
         config.valid_or_raise

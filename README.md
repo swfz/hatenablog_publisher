@@ -58,6 +58,12 @@ Sample:
 
 default: hatenablog_publisher_config.yml
 
+If you want to specify
+
+```
+--config my_config.yml
+```
+
 available ERB syntax
 
 e.g)
@@ -69,6 +75,44 @@ access_token: <%= ENV['HATENABLOG_ACCESS_TOKEN'] %>
 access_token_secret: <%= ENV['HATENABLOG_ACCESS_TOKEN_SECRET'] %>
 user: hoge
 site: hoge.hatenablog.jp
+```
+
+## Use custom data file
+
+Data such as article and image IDs are recorded in markdown by default
+
+If you are managing the article data with confidence, you can specify an article data management file to record the data
+
+```
+hatenablog_publisher --data_file article_data.json
+```
+
+It must be written in the following JSON format
+
+e.g)
+
+- data.json
+
+```
+[
+  {
+    "title": "Article Title",
+    "category": [
+      "Sample",
+      "Markdown"
+    ]
+  },
+  {
+    "title": "Article Title2",
+    "category": [
+      "Sample",
+      "Markdown"
+    ]
+  },
+  .....
+  .....
+  .....
+]
 ```
 
 

@@ -4,13 +4,15 @@ require 'hatenablog_publisher'
 require 'optparse'
 require 'active_support/core_ext/hash'
 
-args = ARGV.getopts('du:s:f:a:t',
+args = ARGV.getopts('',
                     'draft',
                     'user:',
                     'site:',
                     'ad_type:',
                     'ad_file:',
                     'filename:',
+                    'config:',
+                    'data_file:',
                     'trace').symbolize_keys
 
 HatenablogPublisher.publish(args)
