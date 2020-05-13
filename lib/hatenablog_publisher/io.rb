@@ -9,7 +9,7 @@ module HatenablogPublisher
     end
 
     def data_file
-      @options.args[:data_file]
+      @options.data_file
     end
 
     def write(title:, category:, hatena:, text:)
@@ -21,9 +21,9 @@ module HatenablogPublisher
     end
 
     def write_data_file(title:, category:, hatena:)
-      data = JSON.parse(File.read(@options.args[:data_file]))
+      data = JSON.parse(File.read(@options.data_file))
       data.each do |l|
-        next if l['filepath'] == @options.args[:filename]
+        next if l['filepath'] == @options.filename
 
         l.merge!(
           title: title,
@@ -35,7 +35,7 @@ module HatenablogPublisher
     end
 
     def write_file(title:, category:, hatena:, text:)
-      filename = @options.args[:filename]
+      filename = @options.filename
       parsed = FrontMatterParser::Parser.parse_file(filename)
       front_matter = parsed.front_matter.deep_symbolize_keys.merge(
         title: title,
@@ -47,7 +47,7 @@ module HatenablogPublisher
     end
 
     def read
-      filename = @options.args[:filename]
+      filename = @options.filename
 
       if data_file?
         json = JSON.parse(File.read(data_file))

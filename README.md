@@ -54,6 +54,23 @@ Sample:
     image: '<a target.......'
 ```
 
+### Use Config File
+
+default: hatenablog_publisher_config.yml
+
+available ERB syntax
+
+e.g)
+
+```
+consumer_key: <%= ENV['HATENABLOG_CONSUMER_KEY'] %>
+consumer_secret: <%= ENV['HATENABLOG_CONSUMER_SECRET'] %>
+access_token: <%= ENV['HATENABLOG_ACCESS_TOKEN'] %>
+access_token_secret: <%= ENV['HATENABLOG_ACCESS_TOKEN_SECRET'] %>
+user: hoge
+site: hoge.hatenablog.jp
+```
+
 
 ## Development
 
