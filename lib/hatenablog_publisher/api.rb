@@ -3,15 +3,10 @@ require 'json'
 
 module HatenablogPublisher
   class Api
-    attr_reader :client, :header
+    attr_reader :client, :header, :site
 
     def initialize(site)
-      if !ENV['HATENABLOG_CONSUMER_KEY'] || !ENV['HATENABLOG_CONSUMER_SECRET']
-        raise 'Not Found environment [HATENABLOG_CONSUMER_KEY|HATENABLOG_CONSUMER_SECRET]'
-      end
-      if !ENV['HATENABLOG_ACCESS_TOKEN'] || !ENV['HATENABLOG_ACCESS_TOKEN_SECRET']
-        raise 'Not Found environment [HATENABLOG_ACCESS_TOKEN|HATENABLOG_ACCESS_TOKEN_SECRET]'
-      end
+      @site = site
 
       @header = {
         'Accept' => 'application/xml',
