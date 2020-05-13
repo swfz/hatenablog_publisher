@@ -17,7 +17,7 @@ module HatenablogPublisher
 
     def post_entry(body)
       request_xml = format_request(body)
-      basename = File.basename(@options.args[:filename])
+      basename = File.basename(@options.filename)
 
       res = with_logging_request(basename, request_xml) do
         method = @context.hatena.dig(:id) ? :put : :post
@@ -31,7 +31,8 @@ module HatenablogPublisher
 
     def api_url
       id = @context.hatena.dig(:id) ? '/' + @context.hatena[:id] : ''
-      "#{ENDPOINT}/#{@options.args[:user]}/#{@options.args[:site]}/atom/entry#{id}"
+      ap @options
+      "#{ENDPOINT}/#{@options.user}/#{@options.site}/atom/entry#{id}"
     end
 
     def parse_response(response_body)
@@ -45,19 +46,20 @@ module HatenablogPublisher
     end
 
     def format_request(body)
+      draft = @options.draft ? 'yes' : 'no'
       body = <<~"XML"
         <?xml version="1.0" encoding="utf-8"?>
           <entry xmlns="http://www.w3.org/2005/Atom"
         xmlns:app="http://www.w3.org/2007/app">
         <title>#{@context.title}</title>
-          <author><name>#{@options.args[:user]}</name></author>
+          <author><name>#{@options.user}</name></author>
           <content type="text/plain">
         #{body}
           </content>
           <updated>#{Time.now.strftime('%Y-%m-%dT%H:%M%S')}</updated>
           #{categories}
           <app:control>
-            <app:draft>#{@options.draft}</app:draft>
+            <app:draft>#{draft}</app:draft>
           </app:control>
         </entry>
       XML
