@@ -40,7 +40,7 @@ module HatenablogPublisher
       generator = HatenablogPublisher::Generator::Body.new(@context, @options)
       body = generator.generate
 
-      if @options.ad_type
+      if @options.ad_type && @options.ad_file
         category = HatenablogPublisher::FixedContent::Ad.new(@context.categories, @options)
         body += category.format_body
       end
