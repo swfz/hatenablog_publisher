@@ -31,7 +31,7 @@ module HatenablogPublisher
           hatena: hatena
         )
       end
-      File.write(JSON.dump(data), data_file)
+      File.write(data_file, JSON.pretty_generate(data, indent: '   ', space_before: ' '))
     end
 
     def write_file(title:, category:, hatena:, text:)
