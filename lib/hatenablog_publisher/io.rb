@@ -23,7 +23,7 @@ module HatenablogPublisher
     def write_data_file(title:, category:, hatena:)
       data = JSON.parse(File.read(@options.data_file))
       data.each do |l|
-        next if l['filepath'] == @options.filename
+        next unless l['filepath'] == @options.filename
 
         l.merge!(
           title: title,
