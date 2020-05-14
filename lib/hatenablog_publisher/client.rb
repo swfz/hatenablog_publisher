@@ -6,6 +6,8 @@ module HatenablogPublisher
   class Client
     attr_reader :context
 
+    IMAGE_PATTERN = /[^`]!\[.*\]\((.*)\)/.freeze
+
     def initialize(args)
       @options = HatenablogPublisher::Options.create(args)
       io = HatenablogPublisher::Io.new(@options)
@@ -13,7 +15,7 @@ module HatenablogPublisher
     end
 
     def publish
-      image_tags = @context.text.scan(/[^`]!\[.*\]\((.*)\)/).flatten
+      image_tags = @context.text.scan(IMAGE_PATTERN).flatten
       photolife = HatenablogPublisher::Photolife.new
       dirname = File.dirname(@options.filename)
 
@@ -38,7 +40,7 @@ module HatenablogPublisher
       generator = HatenablogPublisher::Generator::Body.new(@context, @options)
       body = generator.generate
 
-      if @options.ad_type
+      if @options.ad_type && @options.ad_file
         category = HatenablogPublisher::FixedContent::Ad.new(@context.categories, @options)
         body += category.format_body
       end

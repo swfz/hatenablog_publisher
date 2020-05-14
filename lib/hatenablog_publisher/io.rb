@@ -23,7 +23,7 @@ module HatenablogPublisher
     def write_data_file(title:, category:, hatena:)
       data = JSON.parse(File.read(@options.data_file))
       data.each do |l|
-        next if l['filepath'] == @options.filename
+        next unless l['filepath'] == @options.filename
 
         l.merge!(
           title: title,
@@ -31,7 +31,7 @@ module HatenablogPublisher
           hatena: hatena
         )
       end
-      File.write(JSON.dump(data), data_file)
+      File.write(data_file, JSON.pretty_generate(data, indent: '   ', space_before: ' '))
     end
 
     def write_file(title:, category:, hatena:, text:)
@@ -50,15 +50,23 @@ module HatenablogPublisher
       filename = @options.filename
 
       if data_file?
-        json = JSON.parse(File.read(data_file))
-        target = json.find { |l| l['filepath'] == filename }
-
-        [target.deep_symbolize_keys, File.read(filename)]
+        read_from_datafile(filename)
       else
-        parsed = FrontMatterParser::Parser.parse_file(filename)
-
-        [parsed.front_matter.deep_symbolize_keys, parsed.content]
+        read_from_file(filename)
       end
+    end
+
+    def read_from_datafile(filename)
+      json = JSON.parse(File.read(data_file))
+      target = json.find { |l| l['filepath'] == filename }
+
+      [target.deep_symbolize_keys, File.read(filename)]
+    end
+
+    def read_from_file(filename)
+      parsed = FrontMatterParser::Parser.parse_file(filename)
+
+      [parsed.front_matter.deep_symbolize_keys, parsed.content]
     end
   end
 end
