@@ -1,8 +1,6 @@
 # HatenablogPublisher
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hatenablog_publisher`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Module to manage local markdown and images using Hatena Blog API and PhotoLife API.
 
 ## Installation
 
@@ -22,12 +20,59 @@ Or install it yourself as:
 
 ## Usage
 
-- --ad_type
+- Patterns for writing CLI commands
+
+```
+#!/usr/bin/env ruby
+require 'hatenablog_publisher'
+require 'active_support/core_ext/hash'
+require 'optparse'
+
+args = ARGV.getopts('',
+                    'draft',
+                    'user:',
+                    'site:',
+                    'ad_type:',
+                    'ad_file:',
+                    'filename:',
+                    'config:',
+                    'data_file:',
+                    'trace').symbolize_keys
+
+HatenablogPublisher.publish(args)
+```
+
+### Option
+
+#### required
+- user
+    - posted by.
+
+- site
+    - blog domain
+
+- filename
+    - markdown file
+
+#### optional
+
+- ad_type
     - image
     - html
 
---ad_file
+- ad_file
     - YAML syntax
+
+- config
+    - A file containing command line options
+    - YAML format
+
+- data_file
+    - for article management
+    - JSON format
+
+- trace
+    - Detailed Output
 
 ### Ad Content
 
@@ -77,7 +122,25 @@ user: hoge
 site: hoge.hatenablog.jp
 ```
 
-## Use custom data file
+### If you want to manage the data in a markdown file
+
+In the first line of the markdown, write the following
+
+front_matter format
+
+- sample.md
+
+```
+---
+title: sample markdown
+category:
+  - Markdown
+  - Sample
+```
+
+after published, data such as article ID will be added to the file.
+
+### If you want to manage your data in a custom data file
 
 Data such as article and image IDs are recorded in markdown by default
 
@@ -115,12 +178,8 @@ e.g)
 ]
 ```
 
+after published, data such as article ID will be added to the file.
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
