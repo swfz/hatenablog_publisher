@@ -6,13 +6,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ["swfz"]
   spec.email         = ["sawafuji.09@gmail.com"]
 
-  spec.summary       = %q{Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
+  spec.summary       = %q{Gem that posts to the Hatena Blog API and PhotoLife API}
   spec.homepage      = "https://github.com/swfz/hatenablog_publisher"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
-
-  # spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/swfz/hatenablog_publisher"
