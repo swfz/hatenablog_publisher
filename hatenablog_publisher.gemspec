@@ -23,4 +23,16 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+  spec.add_development_dependency 'bundler'
+  spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'rspec'
+  spec.add_development_dependency 'awesome_print'
+  spec.add_development_dependency 'pry-byebug'
+  spec.add_dependency 'activesupport'
+  spec.add_dependency 'front_matter_parser'
+  spec.add_dependency 'oauth'
+  spec.add_dependency 'mime-types'
+  spec.add_dependency 'oga'
+  spec.add_dependency 'sanitize'
+  spec.add_dependency 'xml-simple'
 end
