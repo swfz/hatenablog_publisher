@@ -31,7 +31,6 @@ module HatenablogPublisher
 
     def api_url
       id = @context.hatena.dig(:id) ? '/' + @context.hatena[:id] : ''
-      ap @options
       "#{ENDPOINT}/#{@options.user}/#{@options.site}/atom/entry#{id}"
     end
 
