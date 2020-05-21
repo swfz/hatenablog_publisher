@@ -1,7 +1,14 @@
 PATH
   remote: .
   specs:
-    hatenablog_publisher (0.1.0)
+    hatenablog_publisher (0.1.2)
+      activesupport
+      front_matter_parser
+      mime-types
+      oauth
+      oga
+      sanitize
+      xml-simple
 
 GEM
   remote: https://rubygems.org/
@@ -48,7 +55,7 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.13.0)
     rainbow (3.0.0)
-    rake (12.3.3)
+    rake (13.0.1)
     rexml (3.2.4)
     rspec (3.9.0)
       rspec-core (~> 3.9.0)
@@ -92,13 +99,14 @@ PLATFORMS
 DEPENDENCIES
   activesupport
   awesome_print
+  bundler
   front_matter_parser
   hatenablog_publisher!
   mime-types
   oauth
   oga
   pry-byebug
-  rake (~> 12.0)
+  rake (~> 13.0)
   rspec (~> 3.0)
   rubocop
   sanitize
