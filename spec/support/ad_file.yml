@@ -1,0 +1,28 @@
+---
+Markdown:
+  - name: Book1
+    html: <iframe></iframe>
+    image: <a target="_blank"><img /></a>
+  - name: Book2
+    html: <iframe></iframe>
+    image: <a target="_blank"><img /></a>
+  - name: Book3
+    html: <iframe></iframe>
+    image: <a target="_blank"><img /></a>
+  - name: Book4
+    html: <iframe></iframe>
+    image: <a target="_blank"><img /></a>
+Ruby:
+  - name: Book1
+    html: <iframe></iframe>
+    image: <a target="_blank"><img /></a>
+  - name: Book2
+    html: <iframe></iframe>
+    image: <a target="_blank"><img /></a>
+Python:
+  - name: Book1
+    html: <iframe></iframe>
+    image: <a target="_blank"><img /></a>
+  - name: Book2
+    html: <iframe></iframe>
+    image: <a target="_blank"><img /></a>
