@@ -7,6 +7,7 @@ RSpec.describe HatenablogPublisher::Context do
   let(:image2_context) { {syntax:  '[f:id:hoge:22222222222222p:image]', id: 'tag:hatena.ne.jp,2005:fotolife-hoge-22222222222222', image_url: 'https://cdn-ak.f.st-hatena.com/images/fotolife/s/hoge/20200509/20200509150001.png'} }
   let(:categories) { ['Markdown', 'Sample'] }
   let(:title) { 'サンプルマークダウン' }
+  let(:updated) { '2020-05-10T18:30:30' } # sample2.mdと同様
 
   describe '.read_context' do
     context '初回投稿時の状態の.md' do
@@ -23,6 +24,10 @@ RSpec.describe HatenablogPublisher::Context do
 
       it 'hatenaは空か' do
         expect(context.hatena).to be_empty
+      end
+
+      it 'updatedは空か' do
+        expect(context.updated).to be_empty
       end
     end
 
@@ -41,8 +46,12 @@ RSpec.describe HatenablogPublisher::Context do
       }
       end
 
-      it 'title,category,hatenaが読めているか' do
-        is_expected.to have_attributes(title: title, categories: categories, hatena: hatena)
+      it 'title,category,updated,hatenaが読めているか' do
+        is_expected.to have_attributes(
+                           title: title,
+                           categories: categories,
+                           updated: updated,
+                           hatena: hatena)
       end
     end
   end
@@ -111,15 +120,27 @@ RSpec.describe HatenablogPublisher::Context do
         .from({})
         .to({id: '11111111111111111'})
       end
+
+      it 'updatedが追加されているか' do
+        expect { context.add_entry_context(entry_hash) }.to \
+        change(context, :updated)
+        .from('')
+        .to('2020-05-10T18:30:30')
+      end
     end
 
     context '更新投稿時' do
       let(:options) { HatenablogPublisher::Options.new(filename: './spec/support/sample2.md') }
       let(:entry_hash) {entry_api.post_entry('dummy text')}
       let!(:before_hatena) {context.hatena}
+      let!(:before_updated) {context.updated}
 
-      it '何も変更がないか' do
+      it 'hatenaのデータに何も変更がないか' do
         expect { context.add_entry_context(entry_hash) }.not_to  change{context.hatena}.from(before_hatena)
+      end
+
+      it 'updatedに何も変更がないか' do
+        expect { context.add_entry_context(entry_hash) }.not_to  change{context.updated}.from(before_updated)
       end
     end
   end

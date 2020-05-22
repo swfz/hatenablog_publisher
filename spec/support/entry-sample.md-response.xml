@@ -6,7 +6,7 @@
 <link rel="alternate" type="text/html" href="https://hoge-sample.example.com/entry/2020/05/09/182039"/>
 <author><name>hoge</name></author>
 <title>サンプルマークダウン</title>
-<updated>2020-05-09T18:20:39+09:00</updated>
+<updated>2020-05-10T18:30:30+09:00</updated>
 <published>2020-05-09T18:20:39+09:00</published>
 <app:edited>2020-05-09T18:20:39+09:00</app:edited>
 <summary type="text">code block back quote hoge fuga multiline code block type HogeProps = &lt;ComponentProps&lt;typeof Hoge&gt;&gt; type PartialP2 = Partial&lt;Pick&lt;HogeProps,…</summary>
