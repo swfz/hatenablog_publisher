@@ -55,7 +55,7 @@ module HatenablogPublisher
           <content type="text/plain">
         #{body}
           </content>
-          <updated>#{Time.now.strftime('%Y-%m-%dT%H:%M%S')}</updated>
+          <updated>#{@context.updated}</updated>
           #{categories}
           <app:control>
             <app:draft>#{draft}</app:draft>
