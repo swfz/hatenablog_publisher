@@ -1,5 +1,7 @@
 # HatenablogPublisher
 
+![ci](https://github.com/swfz/hatenablog_publisher/workflows/ci/badge.svg)
+
 Module to manage local markdown and images using Hatena Blog API and PhotoLife API.
 
 ## Installation
