@@ -19,8 +19,14 @@ module HatenablogPublisher
       end
 
       def replace_image(markdown)
-        markdown.gsub(IMAGE_PATTERN) do
-          "\n\n" + @context.image_syntax(Regexp.last_match(1))
+        markdown.gsub(IMAGE_PATTERN) do |s|
+          image_name = Regexp.last_match(1)
+
+          if image_name.match('^http')
+            s
+          else
+            "\n\n" + @context.image_syntax(image_name)
+          end
         end
       end
     end
