@@ -40,6 +40,9 @@ type Props = HogeProps & PartialP2
 
 ![alt](sample02.png)
 
+- via http
+
+![alt](http://dummyimage.com/570×295)
 
 ## title3
 
