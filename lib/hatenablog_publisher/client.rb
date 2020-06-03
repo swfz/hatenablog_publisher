@@ -15,7 +15,6 @@ module HatenablogPublisher
     end
 
     def publish
-      image_tags = @context.text.scan(IMAGE_PATTERN).flatten
       photolife = HatenablogPublisher::Photolife.new
       dirname = File.dirname(@options.filename)
 
@@ -34,6 +33,10 @@ module HatenablogPublisher
       entry_hash = entry.post_entry(body)
       @context.add_entry_context(entry_hash)
       @context.reload_context
+    end
+
+    def image_tags
+      @context.text.scan(IMAGE_PATTERN).flatten.reject { |tag| tag.match('^http') }
     end
 
     def generate_body
