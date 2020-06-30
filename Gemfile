@@ -15,3 +15,4 @@ gem 'rspec', '~> 3.0'
 gem 'rubocop'
 gem 'sanitize'
 gem 'xml-simple'
+gem 'codecov', :require => false, :group => :test

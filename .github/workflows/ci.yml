@@ -28,6 +28,7 @@ jobs:
           HATENABLOG_CONSUMER_SECRET: dummy
           HATENABLOG_ACCESS_TOKEN_SECRET: dummy
           HATENABLOG_ACCESS_TOKEN: dummy
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: |
           bundle exec rspec
 
