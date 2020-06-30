@@ -9,7 +9,7 @@ RSpec.describe HatenablogPublisher::Context do
   let(:title) { 'サンプルマークダウン' }
   let(:updated) { '2020-05-10T18:30:30' } # sample2.mdと同様
 
-  describe '.read_context' do
+  describe '#read_context' do
     context '初回投稿時の状態の.md' do
       let(:context) do
         options = HatenablogPublisher::Options.new(filename: './spec/support/sample.md')
@@ -56,7 +56,7 @@ RSpec.describe HatenablogPublisher::Context do
     end
   end
 
-  describe '.add_image_context' do
+  describe '#add_image_context' do
     let(:xml1) {OpenStruct.new(body: File.read('spec/support/photolife-sample01-response.xml'))}
     let(:xml2) {OpenStruct.new(body: File.read('spec/support/photolife-sample02-response.xml'))}
     let(:photolife_api) {HatenablogPublisher::Photolife.new}
@@ -100,7 +100,7 @@ RSpec.describe HatenablogPublisher::Context do
     end
   end
 
-  describe '.add_entry_context' do
+  describe '#add_entry_context' do
     let(:xml) { OpenStruct.new(body: File.read('spec/support/entry-sample.md-response.xml')) }
     let(:options) { HatenablogPublisher::Options.new(filename: './spec/support/sample.md') }
     let(:io) { HatenablogPublisher::Io.new(options) }

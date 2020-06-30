@@ -1,11 +1,27 @@
 require "bundler/setup"
-require "hatenablog_publisher"
 
 require 'simplecov'
-SimpleCov.start
+SimpleCov.command_name 'Rspec'
+SimpleCov.start do
+  track_files "lib/**/*.rb"
+  load_profile "test_frameworks"
+  enable_coverage :branch
 
-require 'codecov'
-SimpleCov.formatter = SimpleCov::Formatter::Codecov
+  if ENV['CI']
+    require 'codecov'
+    formatter SimpleCov::Formatter::Codecov
+  else
+    formatter SimpleCov::Formatter::MultiFormatter.new([
+      SimpleCov::Formatter::SimpleFormatter,
+      SimpleCov::Formatter::HTMLFormatter
+    ])
+  end
+end
+
+
+
+
+require "hatenablog_publisher"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
