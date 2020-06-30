@@ -9,7 +9,7 @@ RSpec.describe HatenablogPublisher::FixedContent::Ad do
   let(:has_2_ads_category2) { 'Python' }
   let(:no_ads_category) { 'AWS' }
 
-  describe '.sample_items' do
+  describe '#sample_items' do
     subject(:ads) { HatenablogPublisher::FixedContent::Ad.new(categories, options).sample_items }
 
     context 'カテゴリ1つで余裕がある場合' do
@@ -41,7 +41,7 @@ RSpec.describe HatenablogPublisher::FixedContent::Ad do
     end
   end
 
-  describe '.format_body' do
+  describe '#format_body' do
     let(:categories) { [has_4_ads_category] }
 
     subject(:body) { HatenablogPublisher::FixedContent::Ad.new(categories, options).format_body }

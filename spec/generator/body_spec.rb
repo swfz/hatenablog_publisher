@@ -1,5 +1,5 @@
 RSpec.describe HatenablogPublisher::Generator::Body do
-  describe '.replace_image' do
+  describe '#replace_image' do
     let(:options) { HatenablogPublisher::Options.new(filename: './spec/support/sample2.md') }
     let(:context) do
       io = HatenablogPublisher::Io.new(options)
