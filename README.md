@@ -2,6 +2,8 @@
 
 ![ci](https://github.com/swfz/hatenablog_publisher/workflows/ci/badge.svg)
 
+[![codecov](https://codecov.io/gh/swfz/hatenablog_publisher/branch/master/graph/badge.svg)](https://codecov.io/gh/swfz/hatenablog_publisher)
+
 Module to manage local markdown and images using Hatena Blog API and PhotoLife API.
 
 ## Installation
