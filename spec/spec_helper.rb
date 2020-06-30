@@ -6,10 +6,20 @@ SimpleCov.start do
   track_files "lib/**/*.rb"
   load_profile "test_frameworks"
   enable_coverage :branch
+
+  if ENV['CI']
+    require 'codecov'
+    formatter SimpleCov::Formatter::Codecov
+  else
+    formatter SimpleCov::Formatter::MultiFormatter.new([
+      SimpleCov::Formatter::SimpleFormatter,
+      SimpleCov::Formatter::HTMLFormatter
+    ])
+  end
 end
 
-require 'codecov'
-SimpleCov.formatter = SimpleCov::Formatter::Codecov
+
+
 
 require "hatenablog_publisher"
 
