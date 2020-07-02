@@ -1,7 +1,7 @@
 require "bundler/setup"
 
 require 'simplecov'
-SimpleCov.command_name 'Rspec'
+
 SimpleCov.start do
   track_files "lib/**/*.rb"
   load_profile "test_frameworks"
@@ -18,10 +18,8 @@ SimpleCov.start do
   end
 end
 
-
-
-
 require "hatenablog_publisher"
+
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
