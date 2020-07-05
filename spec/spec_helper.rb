@@ -3,7 +3,6 @@ require "bundler/setup"
 require 'simplecov'
 
 SimpleCov.start do
-  track_files "lib/**/*.rb"
   load_profile "test_frameworks"
   enable_coverage :branch
 
