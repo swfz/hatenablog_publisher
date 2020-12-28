@@ -13,9 +13,13 @@ module HatenablogPublisher
       def generate
         markdown = @context.text.dup
 
-        replaced_markdown = replace_image(markdown)
+        replaced_markdown = remove_textlint_comment(replace_image(markdown))
 
         CGI.escapeHTML(replaced_markdown)
+      end
+
+      def remove_textlint_comment(markdown)
+        markdown.gsub(/^<!--\s+textlint-(enable|disable).*-->\n/, '')
       end
 
       def replace_image(markdown)
