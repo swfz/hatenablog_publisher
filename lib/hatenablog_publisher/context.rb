@@ -19,7 +19,8 @@ module HatenablogPublisher
     end
 
     def add_image_context(image, tag)
-      syntax = "[#{image['syntax'].first}]"
+      # APIのレスポンスをそのまま使用すると記事上でフォトライフへのリンクになってしまうため、管理画面から画像投稿した結果と合わせた(image -> plain)
+      syntax = "[#{image['syntax'].first}]".gsub(/:image\]/,':plain]')
 
       @hatena ||= {}
       @hatena[:image] ||= {}

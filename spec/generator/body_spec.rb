@@ -16,8 +16,8 @@ RSpec.describe HatenablogPublisher::Generator::Body do
 
     context '画像が含まれる時' do
       it 'はてな記法に変換されているか' do
-        is_expected.to include('[f:id:hoge:11111111111111p:image]')
-        is_expected.to include('[f:id:hoge:22222222222222p:image]')
+        is_expected.to include('[f:id:hoge:11111111111111p:plain]')
+        is_expected.to include('[f:id:hoge:22222222222222p:plain]')
       end
     end
 
