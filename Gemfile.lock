@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    hatenablog_publisher (0.1.4)
+    hatenablog_publisher (0.2.0)
       activesupport
       front_matter_parser
       mime-types
