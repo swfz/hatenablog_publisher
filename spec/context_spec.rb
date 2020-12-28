@@ -3,8 +3,8 @@ require 'oauth'
 require 'awesome_print'
 
 RSpec.describe HatenablogPublisher::Context do
-  let(:image1_context) { {syntax: '[f:id:hoge:11111111111111p:image]', id: 'tag:hatena.ne.jp,2005:fotolife-hoge-11111111111111', image_url: 'https://cdn-ak.f.st-hatena.com/images/fotolife/s/hoge/20200509/20200509150000.png'} }
-  let(:image2_context) { {syntax:  '[f:id:hoge:22222222222222p:image]', id: 'tag:hatena.ne.jp,2005:fotolife-hoge-22222222222222', image_url: 'https://cdn-ak.f.st-hatena.com/images/fotolife/s/hoge/20200509/20200509150001.png'} }
+  let(:image1_context) { {syntax: '[f:id:hoge:11111111111111p:plain]', id: 'tag:hatena.ne.jp,2005:fotolife-hoge-11111111111111', image_url: 'https://cdn-ak.f.st-hatena.com/images/fotolife/s/hoge/20200509/20200509150000.png'} }
+  let(:image2_context) { {syntax:  '[f:id:hoge:22222222222222p:plain]', id: 'tag:hatena.ne.jp,2005:fotolife-hoge-22222222222222', image_url: 'https://cdn-ak.f.st-hatena.com/images/fotolife/s/hoge/20200509/20200509150001.png'} }
   let(:categories) { ['Markdown', 'Sample'] }
   let(:title) { 'サンプルマークダウン' }
   let(:updated) { '2020-05-10T18:30:30' } # sample2.mdと同様
