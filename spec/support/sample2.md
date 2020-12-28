@@ -48,4 +48,8 @@ type Props = HogeProps & PartialP2
 
 ## title4
 
+<!-- textlint-disable ja-technical-writing/ja-no-weak-phrase -->
+まるだと思います
+<!-- textlint-enable ja-technical-writing/ja-no-weak-phrase -->
 
+おわり
