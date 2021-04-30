@@ -50,10 +50,6 @@ jobs:
         run: |
           curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh | sh -s
           rubocop | ./bin/reviewdog -f=rubocop -reporter=github-pr-review
-      # - uses: reviewdog/action-rubocop@v1
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     reporter: github-pr-check
 
   slack-notify:
     if: always()
@@ -61,7 +57,7 @@ jobs:
     name: post slack
     runs-on: ubuntu-latest
     steps:
-      - uses: Gamesight/slack-workflow-status@master
+      - uses: Gamesight/slack-workflow-status@v1.0.1
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
