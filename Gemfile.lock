@@ -46,7 +46,7 @@ GEM
       mini_portile2 (~> 2.4.0)
     nokogumbo (2.0.2)
       nokogiri (~> 1.8, >= 1.8.4)
-    oauth (0.5.4)
+    oauth (0.5.5)
     oga (3.2)
       ast
       ruby-ll (~> 2.1)
