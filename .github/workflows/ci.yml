@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     name: 'test'
     strategy:
+      fail-fast: false
       matrix:
         ruby-version: ['2.6', '2.7', '3.0', '3.1']
 
