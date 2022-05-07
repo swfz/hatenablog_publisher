@@ -1,6 +1,7 @@
 require 'yaml'
 require 'time'
 require 'front_matter_parser'
+require 'active_support'
 require 'active_support/core_ext/hash'
 
 module HatenablogPublisher
