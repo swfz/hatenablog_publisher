@@ -13,7 +13,7 @@ module HatenablogPublisher
     end
 
     def yaml_loader
-      FrontMatterParser::Loader::Yaml.new(whitelist_classes: [Time])
+      FrontMatterParser::Loader::Yaml.new(allowlist_classes: [Time])
     end
 
     def write(metadata, text)
