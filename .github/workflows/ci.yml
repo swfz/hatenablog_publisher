@@ -7,11 +7,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
     name: 'test'
+    strategy:
+      matrix:
+        fail-fast: false
+        ruby-version: ['2.6', '2.7']
     steps:
       - uses: actions/checkout@v3.0.2
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.6
+          ruby-version: ${{ matrix.ruby-version }}
       - uses: actions/cache@v3.0.2
         with:
           path: vendor/bundle
