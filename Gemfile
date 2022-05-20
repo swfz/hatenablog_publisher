@@ -4,11 +4,11 @@ source 'https://rubygems.org'
 gemspec
 
 group :development do
+  gem 'awesome_print'
   gem 'bundler'
+  gem 'pry-byebug'
   gem 'rake'
   gem 'rspec'
-  gem 'awesome_print'
-  gem 'pry-byebug'
 end
 
 group :test do
