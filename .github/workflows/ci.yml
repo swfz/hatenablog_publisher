@@ -12,11 +12,11 @@ jobs:
       matrix:
         ruby-version: ['2.6', '2.7', '3.0', '3.1', '3.2']
     steps:
-      - uses: actions/checkout@v3.2.0
+      - uses: actions/checkout@v3.3.0
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby-version }}
-      - uses: actions/cache@v3.0.11
+      - uses: actions/cache@v3.2.3
         with:
           path: vendor/bundle
           key: ${{ runner.os }}-gems-${{ hashFiles('./Gemfile.lock') }}
@@ -41,8 +41,8 @@ jobs:
     runs-on: ubuntu-latest
     name: 'rubocop'
     steps:
-      - uses: actions/checkout@v3.2.0
-      - uses: ruby/setup-ruby@v1.125.0
+      - uses: actions/checkout@v3.3.0
+      - uses: ruby/setup-ruby@v1.133.2
         with:
           ruby-version: .ruby-version
       - run: |
@@ -61,7 +61,7 @@ jobs:
     name: post slack
     runs-on: ubuntu-latest
     steps:
-      - uses: Gamesight/slack-workflow-status@v1.1.0
+      - uses: Gamesight/slack-workflow-status@v1.2.0
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
