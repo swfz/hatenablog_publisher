@@ -41,6 +41,7 @@ args = ARGV.getopts('',
                     'filename:',
                     'config:',
                     'data_file:',
+                    'custom_path',
                     'trace').symbolize_keys
 
 HatenablogPublisher.publish(args)
@@ -74,6 +75,10 @@ HatenablogPublisher.publish(args)
 - data_file
     - for article management
     - JSON format
+
+- custom_path
+    - specify a path
+    - If `foo/bar` is specified, the URL of the article will be `entry/foo/bar`.
 
 - trace
     - Detailed Output

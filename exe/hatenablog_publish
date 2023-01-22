@@ -13,6 +13,7 @@ args = ARGV.getopts('',
                     'filename:',
                     'config:',
                     'data_file:',
+                    'custom_path:',
                     'trace').symbolize_keys
 
 HatenablogPublisher.publish(args)

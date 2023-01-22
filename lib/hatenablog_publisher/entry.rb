@@ -46,6 +46,14 @@ module HatenablogPublisher
       end.join
     end
 
+    def custom_path
+      return unless @options.custom_path
+
+      <<~"XML"
+        <hatenablog:custom-url xmlns:hatenablog="http://www.hatena.ne.jp/info/xmlns#hatenablog">#{@options.custom_path}</hatenablog:custom-url>
+      XML
+    end
+
     def format_request(body)
       draft = @options.draft ? 'yes' : 'no'
       body = <<~"XML"
@@ -62,6 +70,7 @@ module HatenablogPublisher
           <app:control>
             <app:draft>#{draft}</app:draft>
           </app:control>
+          #{custom_path}
         </entry>
       XML
       body
