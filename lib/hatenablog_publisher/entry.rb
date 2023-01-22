@@ -39,6 +39,8 @@ module HatenablogPublisher
     end
 
     def categories
+      return if !@context.categories
+
       @context.categories.map do |c|
         '<category term="' + c + '" />'
       end.join
