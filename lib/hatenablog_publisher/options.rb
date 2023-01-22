@@ -1,6 +1,7 @@
 require 'erb'
 require 'yaml'
 require 'ostruct'
+
 module HatenablogPublisher
   class Options < OpenStruct
     attr_reader :args
