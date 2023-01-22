@@ -1,6 +1,5 @@
 require 'oauth'
 require 'json'
-require 'awesome_print'
 
 module HatenablogPublisher
   class Client
