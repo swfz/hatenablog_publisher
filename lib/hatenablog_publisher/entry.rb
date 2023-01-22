@@ -39,7 +39,7 @@ module HatenablogPublisher
     end
 
     def categories
-      return if !@context.categories
+      return unless @context.categories
 
       @context.categories.map do |c|
         '<category term="' + c + '" />'
@@ -62,9 +62,20 @@ module HatenablogPublisher
           <app:control>
             <app:draft>#{draft}</app:draft>
           </app:control>
+          #{custom_path}
         </entry>
       XML
       body
+    end
+
+    def custom_path
+      if @options.custom_path
+        <<~"XML"
+          <hatenablog:custom-url xmlns:hatenablog="http://www.hatena.ne.jp/info/xmlns#hatenablog">#{@options.custom_path}</hatenablog:custom-url>
+        XML
+      else
+        ''
+      end
     end
   end
 end
