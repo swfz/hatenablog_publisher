@@ -42,7 +42,7 @@ jobs:
     name: 'rubocop'
     steps:
       - uses: actions/checkout@v3.6.0
-      - uses: ruby/setup-ruby@v1.153.0
+      - uses: ruby/setup-ruby@v1.155.0
         with:
           ruby-version: .ruby-version
       - run: |
