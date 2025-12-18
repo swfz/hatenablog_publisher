@@ -1,5 +1,48 @@
 # Changelog
 
+## [v0.4.2](https://github.com/swfz/hatenablog_publisher/compare/v0.4.1...v0.4.2) - 2025-12-18
+- test: add test code by @swfz in https://github.com/swfz/hatenablog_publisher/pull/113
+- chore(deps): update actions/cache action to v3.2.4 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/115
+- chore(deps): update ruby/setup-ruby action to v1.135.0 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/117
+- chore(deps): update actions/cache action to v3.2.5 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/120
+- chore(deps): update ruby/setup-ruby action to v1.137.1 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/118
+- chore(deps): update dependency ruby to v3.2.1 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/119
+- chore(deps): update ruby/setup-ruby action to v1.137.2 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/121
+- chore(deps): update ruby/setup-ruby action to v1.138.0 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/122
+- chore(deps): update actions/cache action to v3.2.6 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/123
+- chore(deps): update ruby/setup-ruby action to v1.141.0 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/125
+- chore(deps): bump actions/checkout from 3.3.0 to 3.4.0 by @dependabot[bot] in https://github.com/swfz/hatenablog_publisher/pull/132
+- chore(deps): bump ruby/setup-ruby from 1.141.0 to 1.146.0 by @dependabot[bot] in https://github.com/swfz/hatenablog_publisher/pull/136
+- chore(deps): bump ruby/setup-ruby from 1.146.0 to 1.148.0 by @dependabot[bot] in https://github.com/swfz/hatenablog_publisher/pull/141
+- chore(deps): update dependency ruby to v3.2.2 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/135
+- chore(deps): bump actions/cache from 3.2.6 to 3.3.1 by @dependabot[bot] in https://github.com/swfz/hatenablog_publisher/pull/131
+- chore(deps): bump actions/checkout from 3.4.0 to 3.5.2 by @dependabot[bot] in https://github.com/swfz/hatenablog_publisher/pull/139
+- chore(deps): bump actions/checkout from 3.5.2 to 3.5.3 by @dependabot[bot] in https://github.com/swfz/hatenablog_publisher/pull/148
+- chore(deps): update ruby/setup-ruby action to v1.151.0 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/143
+- chore(deps): update all dependencies by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/149
+- chore(deps): update actions/cache action to v3.3.2 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/155
+- chore(deps): update ruby/setup-ruby action to v1.153.0 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/156
+- chore(deps): update ruby/setup-ruby action to v1.155.0 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/157
+- chore(deps): update actions/checkout action to v4 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/152
+- chore(deps): update actions/checkout action to v4.1.1 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/159
+- chore(deps): update ruby/setup-ruby action to v1.161.0 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/158
+- chore(deps): update ruby/setup-ruby action to v1.162.0 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/160
+- chore(deps): bump actions/cache from 3.3.1 to 3.3.2 by @dependabot[bot] in https://github.com/swfz/hatenablog_publisher/pull/154
+- chore(deps): update all dependencies by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/161
+- chore(deps): update actions/cache action to v3.3.3 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/162
+- chore(deps): update actions/cache action to v4 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/166
+- chore(deps): update ruby/setup-ruby action to v1.171.0 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/164
+- chore(deps): update gamesight/slack-workflow-status action to v1.3.0 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/167
+- chore(deps): update ruby/setup-ruby action to v1.173.0 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/169
+- chore(deps): update actions/cache action to v4.0.2 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/171
+- chore(deps): bump actions/checkout from 4.1.1 to 4.1.2 by @dependabot[bot] in https://github.com/swfz/hatenablog_publisher/pull/172
+- chore(deps): update actions/checkout action to v4.1.3 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/175
+- chore(deps): update actions/checkout action to v4.1.4 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/178
+- chore(deps): update ruby/setup-ruby action to v1.176.0 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/173
+- chore(deps): update actions/checkout action to v4.1.5 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/180
+- chore(deps): update dependency ruby to v3.3.1 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/176
+- chore(deps): bump actions/checkout from 4.1.5 to 4.1.7 by @dependabot[bot] in https://github.com/swfz/hatenablog_publisher/pull/185
+
 ## [v0.4.1](https://github.com/swfz/hatenablog_publisher/compare/v0.4.0...v0.4.1) - 2023-01-22
 - chore(deps): update ruby/setup-ruby action to v1.134.0 by @renovate in https://github.com/swfz/hatenablog_publisher/pull/107
 - to v0.4.1 by @swfz in https://github.com/swfz/hatenablog_publisher/pull/112
