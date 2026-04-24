@@ -38,7 +38,7 @@ module HatenablogPublisher
       filename = @options.filename
       parsed = FrontMatterParser::Parser.parse_file(filename, loader: yaml_loader)
       front_matter = parsed.front_matter.deep_symbolize_keys.merge(metadata)
-      body = YAML.dump(front_matter.deep_stringify_keys) + "\n---\n\n" + text
+      body = "#{YAML.dump(front_matter.deep_stringify_keys)}\n---\n\n#{text}"
       File.write(filename, body)
     end
 

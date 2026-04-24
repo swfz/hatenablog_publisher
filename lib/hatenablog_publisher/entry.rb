@@ -20,7 +20,7 @@ module HatenablogPublisher
       basename = File.basename(@options.filename)
 
       res = with_logging_request(basename, request_xml) do
-        method = @context.hatena.dig(:id) ? :put : :post
+        method = @context.hatena[:id] ? :put : :post
         @client.request(api_url, request_xml, method)
       end
 
@@ -30,7 +30,7 @@ module HatenablogPublisher
     private
 
     def api_url
-      id = @context.hatena.dig(:id) ? '/' + @context.hatena[:id] : ''
+      id = @context.hatena[:id] ? "/#{@context.hatena[:id]}" : ''
       "#{ENDPOINT}/#{@options.user}/#{@options.site}/atom/entry#{id}"
     end
 
@@ -42,7 +42,7 @@ module HatenablogPublisher
       return unless @context.categories
 
       @context.categories.map do |c|
-        '<category term="' + c + '" />'
+        "<category term=\"#{c}\" />"
       end.join
     end
 
@@ -56,7 +56,7 @@ module HatenablogPublisher
 
     def format_request(body)
       draft = @options.draft ? 'yes' : 'no'
-      body = <<~"XML"
+      <<~"XML"
         <?xml version="1.0" encoding="utf-8"?>
           <entry xmlns="http://www.w3.org/2005/Atom"
         xmlns:app="http://www.w3.org/2007/app">
@@ -73,7 +73,6 @@ module HatenablogPublisher
           #{custom_path}
         </entry>
       XML
-      body
     end
   end
 end

@@ -27,7 +27,7 @@ Lint/AmbiguousBlockAssociation:
 Metrics/ClassLength:
   Max: 100
 
-Metrics/LineLength:
+Layout/LineLength:
   Max: 100
 
 Metrics/MethodLength:
@@ -72,8 +72,8 @@ Style/TrailingCommaInArrayLiteral:
 Style/TrailingCommaInArguments:
   Enabled: true
 
-Naming/PredicateName:
-  NamePrefix:
+Naming/PredicatePrefix:
+  ForbiddenPrefixes:
     - has_
     - have_
 
