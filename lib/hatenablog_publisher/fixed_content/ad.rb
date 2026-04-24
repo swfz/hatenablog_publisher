@@ -10,7 +10,7 @@ module HatenablogPublisher
       end
 
       def format_body
-        "\n\n\n" + CGI.escapeHTML(sample_items.join("\n"))
+        "\n\n\n#{CGI.escapeHTML(sample_items.join("\n"))}"
       end
 
       def sample_items

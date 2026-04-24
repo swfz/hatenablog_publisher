@@ -29,7 +29,7 @@ module HatenablogPublisher
           if image_name.match('^http')
             s
           else
-            "\n\n" + @context.image_syntax(image_name)
+            "\n\n#{@context.image_syntax(image_name)}"
           end
         end
       end
