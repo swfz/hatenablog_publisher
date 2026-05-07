@@ -1,6 +1,6 @@
 # Changelog
 
-## [v0.4.2](https://github.com/swfz/hatenablog_publisher/compare/v0.4.1...v0.4.2) - 2026-04-30
+## [v0.4.2](https://github.com/swfz/hatenablog_publisher/compare/v0.4.1...v0.4.2) - 2026-05-07
 - test: add test code by @swfz in https://github.com/swfz/hatenablog_publisher/pull/113
 - chore(deps): update actions/cache action to v3.2.4 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/115
 - chore(deps): update ruby/setup-ruby action to v1.135.0 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/117
@@ -49,6 +49,7 @@
 - chore(deps): pin dependencies by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/199
 - chore(deps): update actions/checkout action to v6 by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/188
 - chore(deps): swfz fork から Gamesight/slack-workflow-status v2.0.0 に差し替え by @swfz in https://github.com/swfz/hatenablog_publisher/pull/201
+- chore(deps): update all dependencies by @renovate[bot] in https://github.com/swfz/hatenablog_publisher/pull/183
 
 ## [v0.4.1](https://github.com/swfz/hatenablog_publisher/compare/v0.4.0...v0.4.1) - 2023-01-22
 - chore(deps): update ruby/setup-ruby action to v1.134.0 by @renovate in https://github.com/swfz/hatenablog_publisher/pull/107
